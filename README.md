@@ -2,7 +2,7 @@
 
 Uma aplicação completa de agenda de contatos desenvolvida em Java, aplicando os principais conceitos de Programação Orientada a Objetos.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 - ✅ Adicionar contatos pessoais e profissionais
 - ✅ Listar todos os contatos
@@ -12,15 +12,19 @@ Uma aplicação completa de agenda de contatos desenvolvida em Java, aplicando o
 - ✅ Armazenamento em memória com ArrayList
 - ✅ Tratamento de exceções
 
-## 🏗️ Estrutura do Projeto
+## Estrutura do Projeto
 
 src/br/com/agenda/
+
 ├── model/ # Classes de domínio
+
 ├── service/ # Lógica de negócio
+
 ├── exception/ # Tratamento de exceções
+
 └── Main.java # Classe principal
 
-## 📚 Conceitos de POO Aplicados
+## Conceitos de POO Aplicados
 
 - **Classes e Objetos**: Modelagem dos elementos da agenda
 - **Encapsulamento**: Atributos privados com getters/setters
@@ -29,13 +33,13 @@ src/br/com/agenda/
 - **Composição**: Contato contém Endereco
 - **Tratamento de Exceções**: Validação de dados e operações
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - Java 8+
 - ArrayList para armazenamento
 - Scanner para entrada de dados
 
-## 📦 Como Executar
+## Como Executar
 
 1. Clone o repositório
 2. Compile os arquivos Java:
