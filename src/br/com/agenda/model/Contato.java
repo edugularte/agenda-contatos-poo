@@ -10,8 +10,8 @@ import java.util.List;
 public class Contato {
     // ATRIBUTOS: nome, lista de telefones, lista de emails, endereço
     private String nome;
-    private List<String> telefones;
-    private List<String> emails;
+    private final List<String> telefones;
+    private final List<String> emails;
     private Endereco endereco;
 
     // CONSTRUTOR: Inicializa o contato com nome e listas vazias
