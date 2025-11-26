@@ -11,7 +11,7 @@ public class ContatoProfissional extends Contato {  // HERANÇA: extends Contato
 
     // CONSTRUTOR: Chama construtor da classe pai e inicializa atributos específicos
     public ContatoProfissional(String nome, String empresa, String cargo) {
-        super(nome);
+        super(nome); // Chama construtor da classe pai
         this.empresa = empresa;
         this.cargo = cargo;
     }
