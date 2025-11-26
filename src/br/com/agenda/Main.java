@@ -1,8 +1,8 @@
 package br.com.agenda;
 
+import br.com.agenda.exception.ContatoException;
 import br.com.agenda.model.*;
 import br.com.agenda.service.Agenda;
-import br.com.agenda.exception.ContatoException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,31 +12,31 @@ import java.util.Scanner;
  */
 public class Main {
     // ATRIBUTOS: Agenda e Scanner para entrada de dados
-    private static Agenda agenda = new Agenda();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Agenda agenda = new Agenda();
+    private static final Scanner scanner = new Scanner(System.in);
 
     // MÉTODO main(): Ponto de entrada da aplicação
     public static void main(String[] args) {
-        int opcao;
-        
-        do {
-            exibirMenu();
-            opcao = lerInteiro("Escolha uma opção: ");
-
-            // CONTROLE DE FLUXO: Switch para opções do menu
-            switch (opcao) {
-                case 1 -> adicionarContato();
-                case 2 -> listarContatos();
-                case 3 -> buscarContato();
-                case 4 -> editarContato();
-                case 5 -> removerContato();
-                case 0 -> System.out.println("Saindo da agenda...");
-                default -> System.out.println("Opção inválida!");
-            }
+        try (scanner) {
+            int opcao;
             
-        } while (opcao != 0);
-        
-        scanner.close();
+            do {
+                exibirMenu();
+                opcao = lerInteiro("Escolha uma opção: ");
+                
+                // CONTROLE DE FLUXO: Switch para opções do menu
+                switch (opcao) {
+                    case 1 -> adicionarContato();
+                    case 2 -> listarContatos();
+                    case 3 -> buscarContato();
+                    case 4 -> editarContato();
+                    case 5 -> removerContato();
+                    case 0 -> System.out.println("Saindo da agenda...");
+                    default -> System.out.println("Opção inválida!");
+                }
+                
+            } while (opcao != 0);
+        }
     }
 
     // MÉTODO exibirMenu(): Mostra as opções disponíveis
@@ -147,15 +147,19 @@ public class Main {
         
         List<Contato> resultados;
         
-        if (opcao == 1) {
-            String nome = lerString("Nome: ");
-            resultados = agenda.buscarPorNome(nome); // MÉTODO da classe Agenda
-        } else if (opcao == 2) {
-            String email = lerString("Email: ");
-            resultados = agenda.buscarPorEmail(email); // MÉTODO da classe Agenda
-        } else {
-            System.out.println("Opção inválida!");
-            return;
+        switch (opcao) {
+            case 1 -> {
+                String nome = lerString("Nome: ");
+                resultados = agenda.buscarPorNome(nome); // MÉTODO da classe Agenda
+            }
+            case 2 -> {
+                String email = lerString("Email: ");
+                resultados = agenda.buscarPorEmail(email); // MÉTODO da classe Agenda
+            }
+            default -> {
+                System.out.println("Opção inválida!");
+                return;
+            }
         }
         
         if (resultados.isEmpty()) {
