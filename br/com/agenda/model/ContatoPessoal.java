@@ -10,7 +10,7 @@ public class ContatoPessoal extends Contato { // HERANÇA: extends Contato
 
     // CONSTRUTOR: Chama construtor da classe pai e inicializa atributo específico
     public ContatoPessoal(String nome, String dataAniversario) {
-        super(nome);
+        super(nome); // Chama construtor da classe pai
         this.dataAniversario = dataAniversario;
     }
 
