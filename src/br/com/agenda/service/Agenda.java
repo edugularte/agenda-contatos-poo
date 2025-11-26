@@ -1,12 +1,12 @@
 package br.com.agenda.service;
 
-import br.com.agenda.model.Contato;
 import br.com.agenda.exception.ContatoException;
+import br.com.agenda.model.Contato;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
-    private List<Contato> contatos;
+    private final List<Contato> contatos;
     
     public Agenda() {
         this.contatos = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Agenda {
             throw new ContatoException("Contato não pode ser nulo");
         }
         
-        if (buscarPorNome(contato.getNome()).size() > 0) {
+        if (!buscarPorNome(contato.getNome()).isEmpty()) {
             throw new ContatoException("Já existe um contato com este nome");
         }
         
